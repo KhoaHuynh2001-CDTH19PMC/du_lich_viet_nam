@@ -13,7 +13,9 @@ class _MainScreenState extends State<MainScreen> {
     return DefaultTabController(
         length: 0,
         child: Scaffold(
-          appBar: AppBar(title: const Text('Data')),
+          appBar: AppBar(
+              title: const Text('TravelStars'),
+              backgroundColor: Color.fromRGBO(0, 93, 158, 1)),
           body: Row(),
           endDrawer: Drawer(
             child: ListView(
@@ -21,7 +23,7 @@ class _MainScreenState extends State<MainScreen> {
               children: [
                 DrawerHeader(
                     decoration: BoxDecoration(
-                      color: Colors.blue,
+                      color: Color.fromRGBO(0, 93, 158, 1),
                     ),
                     child: Row(
                       children: [
@@ -69,7 +71,7 @@ class _MainScreenState extends State<MainScreen> {
                   title: Row(
                     children: [
                       Icon(
-                        Icons.change_circle,
+                        Icons.info,
                         size: 30,
                       ),
                       SizedBox(width: 10),
@@ -99,7 +101,7 @@ class _MainScreenState extends State<MainScreen> {
                     ],
                   ),
                   onTap: () {
-                    Navigator.pop(context);
+                    Navigator.pushNamed(context, '/change_password');
                   },
                 ),
                 //

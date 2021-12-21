@@ -1,22 +1,23 @@
 import 'package:flutter/material.dart';
 
-class Update_InforScreen extends StatefulWidget {
-  const Update_InforScreen({Key? key}) : super(key: key);
+class Change_PasswordScreen extends StatefulWidget {
+  const Change_PasswordScreen({Key? key}) : super(key: key);
 
   @override
-  State<Update_InforScreen> createState() => _Update_InforScreenState();
+  State<Change_PasswordScreen> createState() => _Change_PasswordScreenState();
 }
 
-class _Update_InforScreenState extends State<Update_InforScreen> {
-  TextEditingController _tendangnhap = new TextEditingController();
-  TextEditingController _password = new TextEditingController();
-  TextEditingController _hoten = new TextEditingController();
+class _Change_PasswordScreenState extends State<Change_PasswordScreen> {
+  TextEditingController _matkhaucu = new TextEditingController();
+  TextEditingController _matkhaumoi = new TextEditingController();
+  TextEditingController _xacnhan = new TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-          title: const Text('Travel Stars'),
-          backgroundColor: Color.fromRGBO(0, 93, 158, 1)),
+        backgroundColor: Color.fromRGBO(0, 93, 158, 1),
+        title: const Text('TravelStars'),
+      ),
       body: Container(
         padding: EdgeInsets.fromLTRB(30, 0, 30, 0),
         child: Column(
@@ -25,40 +26,40 @@ class _Update_InforScreenState extends State<Update_InforScreen> {
             Container(
               padding: EdgeInsets.fromLTRB(20, 20, 20, 0),
             ),
-            //tên đăng nhập
+            //mật khẩu cũ
             TextField(
-              controller: _tendangnhap,
+              controller: _matkhaucu,
               decoration: InputDecoration(
-                  hintText: 'Tên đăng nhập',
+                  hintText: 'Mật khẩu cũ',
                   labelStyle: TextStyle(fontSize: 15, color: Colors.lightGreen),
                   prefixIcon: Icon(
-                    Icons.person,
+                    Icons.lock,
                     color: Colors.black,
                   )),
               readOnly: true,
             ),
-            //họ tên
+            //mật khẩu mới
             TextField(
-              controller: _hoten,
+              controller: _matkhaumoi,
               decoration: InputDecoration(
-                  hintText: 'Họ Tên',
+                  hintText: 'Mật khẩu mới',
                   labelStyle: TextStyle(fontSize: 15, color: Colors.lightGreen),
                   prefixIcon: Icon(
-                    Icons.perm_identity,
+                    Icons.lock_outline,
                     color: Colors.black,
                   )),
             ),
             Container(
               padding: EdgeInsets.fromLTRB(20, 10, 20, 0),
             ),
-            //email
+            //xác nhận mật khẩu mới
             TextField(
-              controller: _hoten,
+              controller: _xacnhan,
               decoration: InputDecoration(
-                  hintText: 'Email',
+                  hintText: 'Xác nhận mật khẩu mới',
                   labelStyle: TextStyle(fontSize: 15, color: Colors.lightGreen),
                   prefixIcon: Icon(
-                    Icons.email_sharp,
+                    Icons.lock_outline,
                     color: Colors.black,
                   )),
             ),

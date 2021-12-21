@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 class ErrorScreen extends StatefulWidget {
   const ErrorScreen({Key? key}) : super(key: key);
 
@@ -16,7 +17,7 @@ class _ErrorScreenState extends State<ErrorScreen> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               Image.network(
-                'images/error.png',
+                'img/error.png',
                 width: 100,
                 height: 100,
               ),
