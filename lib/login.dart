@@ -9,7 +9,7 @@ class LoginScreen extends StatefulWidget {
 
 class _LoginScreenState extends State<LoginScreen> {
   TextEditingController _tendangnhap = new TextEditingController();
-  TextEditingController _password = new TextEditingController();
+  TextEditingController _matkhau = new TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -21,20 +21,22 @@ class _LoginScreenState extends State<LoginScreen> {
                 image: NetworkImage('img/background-du-lich.jpg'),
                 fit: BoxFit.fill,
                 colorFilter: ColorFilter.mode(
-                    Colors.black.withOpacity(0.1), BlendMode.darken))),
+                    Colors.black.withOpacity(0.1), BlendMode.lighten))),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Image.network(
-              'images/CATLOGO1.png',
+              'img/logo.png',
+              height: 300,
+              width: 300,
             ),
-            Container(
-              padding: EdgeInsets.fromLTRB(20, 20, 20, 0),
+            SizedBox(
+              height: 16,
             ),
             TextField(
               controller: _tendangnhap,
               decoration: InputDecoration(
-                  hintText: 'Email',
+                  hintText: 'Tên đăng nhập',
                   labelStyle: TextStyle(fontSize: 15, color: Colors.lightGreen),
                   prefixIcon: Icon(
                     Icons.email_sharp,
@@ -45,7 +47,7 @@ class _LoginScreenState extends State<LoginScreen> {
               padding: EdgeInsets.fromLTRB(20, 20, 20, 0),
             ),
             TextField(
-                controller: _password,
+                controller: _matkhau,
                 decoration: InputDecoration(
                     hintText: 'Password',
                     labelStyle: TextStyle(fontSize: 15, color: Colors.black),
@@ -60,15 +62,15 @@ class _LoginScreenState extends State<LoginScreen> {
               width: 250,
               child: OutlinedButton(
                 onPressed: () {
-                  if (_tendangnhap.text == _password.text) {
+                  if (_tendangnhap.text == _matkhau.text) {
                     Navigator.pushNamed(context, '/main');
-                  } else if (_tendangnhap.text == " " ||
-                      _password.text == " ") {
+                  } else if (_tendangnhap.text == " " || _matkhau.text == " ") {
                     showDialog(
                       context: context,
                       builder: (BuildContext context) => AlertDialog(
                         title: const Text('Thông Báo'),
-                        content: Text('Email hoặc Password đang bị thiếu'),
+                        content:
+                            Text('Tên đăng nhập hoặc Password đang bị thiếu'),
                         actions: <Widget>[
                           TextButton(
                             onPressed: () => Navigator.pop(context),
@@ -77,7 +79,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         ],
                       ),
                     );
-                  } else if (_tendangnhap.text != _password.text) {
+                  } else if (_tendangnhap.text != _matkhau.text) {
                     Navigator.pushNamed(context, '/error');
                   }
                 },
