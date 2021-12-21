@@ -1,40 +1,44 @@
 import 'package:flutter/material.dart';
 
-class LoginScreen extends StatefulWidget {
-  const LoginScreen({Key? key}) : super(key: key);
+class Update_InforScreen extends StatefulWidget {
+  const Update_InforScreen({Key? key}) : super(key: key);
 
   @override
-  State<LoginScreen> createState() => _LoginScreenState();
+  State<Update_InforScreen> createState() => _Update_InforScreenState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
+class _Update_InforScreenState extends State<Update_InforScreen> {
   TextEditingController _tendangnhap = new TextEditingController();
   TextEditingController _password = new TextEditingController();
-
+  TextEditingController _hoten = new TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
         padding: EdgeInsets.fromLTRB(30, 0, 30, 0),
-        decoration: BoxDecoration(
-            image: DecorationImage(
-                image: NetworkImage('img/background-du-lich.jpg'),
-                fit: BoxFit.fill,
-                colorFilter: ColorFilter.mode(
-                    Colors.black.withOpacity(0.1), BlendMode.darken))),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Image.network(
-              'images/CATLOGO1.png',
-            ),
             Container(
               padding: EdgeInsets.fromLTRB(20, 20, 20, 0),
             ),
+            //tên đăng nhập
             TextField(
               controller: _tendangnhap,
               decoration: InputDecoration(
-                  hintText: 'Email',
+                  hintText: 'Tên đăng nhập',
+                  labelStyle: TextStyle(fontSize: 15, color: Colors.lightGreen),
+                  prefixIcon: Icon(
+                    Icons.email_sharp,
+                    color: Colors.black,
+                  )),
+              readOnly: true,
+            ),
+            //họ tên
+            TextField(
+              controller: _hoten,
+              decoration: InputDecoration(
+                  hintText: 'Họ Tên',
                   labelStyle: TextStyle(fontSize: 15, color: Colors.lightGreen),
                   prefixIcon: Icon(
                     Icons.email_sharp,
@@ -44,15 +48,6 @@ class _LoginScreenState extends State<LoginScreen> {
             Container(
               padding: EdgeInsets.fromLTRB(20, 20, 20, 0),
             ),
-            TextField(
-                controller: _password,
-                decoration: InputDecoration(
-                    hintText: 'Password',
-                    labelStyle: TextStyle(fontSize: 15, color: Colors.black),
-                    prefixIcon: Icon(
-                      Icons.lock,
-                      color: Colors.black,
-                    ))),
             Container(
               padding: EdgeInsets.fromLTRB(20, 10, 20, 0),
             ),
@@ -62,8 +57,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 onPressed: () {
                   if (_tendangnhap.text == _password.text) {
                     Navigator.pushNamed(context, '/main');
-                  } else if (_tendangnhap.text == " " ||
-                      _password.text == " ") {
+                  } else if (_tendangnhap.text == '' || _password.text == '') {
                     showDialog(
                       context: context,
                       builder: (BuildContext context) => AlertDialog(
@@ -77,12 +71,10 @@ class _LoginScreenState extends State<LoginScreen> {
                         ],
                       ),
                     );
-                  } else if (_tendangnhap.text != _password.text) {
-                    Navigator.pushNamed(context, '/error');
                   }
                 },
                 child: Text(
-                  "Đăng nhập",
+                  "Lưu",
                   style: TextStyle(
                     fontSize: 15,
                     color: Colors.blue,

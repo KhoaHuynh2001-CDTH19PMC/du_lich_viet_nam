@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'login.dart';
 import 'error_screen.dart';
 import 'main_screen.dart';
+import 'update_infor_screen.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -17,13 +19,13 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-       initialRoute: '/home',
+      initialRoute: '/home',
       routes: {
         '/home': (context) => const LoginScreen(),
         '/error': (context) => const ErrorScreen(),
         '/main': (context) => const MainScreen(),
+        '/update_infor': (context) => const Update_InforScreen(),
       },
     );
   }
 }
-
