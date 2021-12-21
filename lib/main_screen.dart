@@ -11,15 +11,10 @@ class _MainScreenState extends State<MainScreen> {
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
-        length: 3,
+        length: 0,
         child: Scaffold(
-          appBar: AppBar(title: const Text('Facebook')),
-          body: TabBarView(
-            children: [
-              Icon(Icons.supervisor_account),
-              Icon(Icons.notifications),
-            ],
-          ),
+          appBar: AppBar(title: const Text('Data')),
+          body: Row(),
           endDrawer: Drawer(
             child: ListView(
               padding: EdgeInsets.zero,
@@ -74,6 +69,44 @@ class _MainScreenState extends State<MainScreen> {
                   title: Row(
                     children: [
                       Icon(
+                        Icons.change_circle,
+                        size: 30,
+                      ),
+                      SizedBox(width: 10),
+                      Text(
+                        'Cập nhật thông tin',
+                        style: TextStyle(fontSize: 18),
+                      )
+                    ],
+                  ),
+                  onTap: () {
+                    Navigator.pushNamed(context, '/update_infor');
+                  },
+                ),
+                //3
+                ListTile(
+                  title: Row(
+                    children: [
+                      Icon(
+                        Icons.sync_alt,
+                        size: 30,
+                      ),
+                      SizedBox(width: 10),
+                      Text(
+                        'Đổi mật khẩu',
+                        style: TextStyle(fontSize: 18),
+                      )
+                    ],
+                  ),
+                  onTap: () {
+                    Navigator.pop(context);
+                  },
+                ),
+                //
+                ListTile(
+                  title: Row(
+                    children: [
+                      Icon(
                         Icons.settings,
                         size: 30,
                       ),
@@ -88,6 +121,7 @@ class _MainScreenState extends State<MainScreen> {
                     Navigator.pop(context);
                   },
                 ),
+                //đăng xuất
                 ListTile(
                   title: Row(
                     children: [
