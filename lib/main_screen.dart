@@ -1,3 +1,4 @@
+import 'package:du_lich_viet_nam/khoa.dart';
 import 'package:flutter/material.dart';
 
 class MainScreen extends StatefulWidget {
@@ -16,7 +17,7 @@ class _MainScreenState extends State<MainScreen> {
           appBar: AppBar(
               title: const Text('TravelStars'),
               backgroundColor: Color.fromRGBO(0, 93, 158, 1)),
-          body: Row(),
+          body: MainBody(),
           endDrawer: Drawer(
             child: ListView(
               padding: EdgeInsets.zero,
